@@ -390,16 +390,95 @@
         //     const arrayZ = arraySS.join('');
         //     console.log(arrayZ);
 
-        function getNthChar(s, n) {
-            const arrayS = s.split('');
-            // console.log(arrayS);
-            // n - 1の番目までを抽出する
-            const arraySS = arrayS.slice(n, n);
-        }
+        // function getNthChar(s, n) {
+        //     const arrayS = s.split('');
+        //     // console.log(arrayS);
+        //     // n - 1の番目までを抽出する
+        //     const arraySS = arrayS.slice(n-1, n);
+        //     // console.log(arraySS);
+        // }
+        // console.log(getNthChar('gsacademy', 3));    // a
+        // console.log(getNthChar('abcdefg', 5));    // e
+        // console.log(getNthChar('qwertyu', 1));    // q
 
-        console.log(getNthChar('gsacademy', 3));    // a
-        console.log(getNthChar('abcdefg', 5));    // e
-        console.log(getNthChar('qwertyu', 1));    // q
+        // 15 Aの個数(正規表現)
+        // 半角アルファベットで構成された文字列sが与えられます．
+        // sに含まれる半角アルファベット「A」の数を出力する
+        // getNumberOfA()関数を作成してください．
+
+        //あるテキストに含まれる文字の数を確認したい場合は、match()を利用しましょう。
+        ///パターン/gのgはgフラグといい、複数箇所の文字列を抽出できる
+        // var text = "あいうえおあいうえお";
+        // var count = (text.match(/あ/g) || []).length;
+        //対処の文字を変数で指定したい場合はこれ
+        // var text = "あいうえおあいうえお";
+        // var targetStr = "あ";
+        // var count = (text.match(new RegExp(targetStr, "g")) || []).length;
+
+        // function getNumberOfA(s) {
+        //     const str = s;
+        //     const targetStr = 'A';
+        //     const targetStr2 = 'a';
+        //     const count = (str.match(new RegExp(targetStr, "g")) || []).length;
+        //     const count2 = (str.match(new RegExp(targetStr2, "g")) || []).length;
+        //     console.log(count);
+        //     console.log(count2);
+        // }
+        // console.log(getNumberOfA('GSACADEMY'));    // 2
+        // console.log(getNumberOfA('aAaAaA'));    // 3
+        // console.log(getNumberOfA('JavaScript'));    // 0
+
+        //16  表面積の計算
+        // 立方体の体積を求めましょう．
+        // 一辺の長さaが入力されるので，立方体の表面積を出力する
+        // getSurfaceArea()関数を作成してください．
+        // function getSurfaceArea(a) {
+        //     const sur = a * a * 6;
+        //     console.log(sur);
+        // }
+        // console.log(getSurfaceArea(4));    // 96
+        // console.log(getSurfaceArea(1));    // 6
+
+        // 17 三角形の内角の和
+        // 平面上の三角形の2つの角の角度a, bを入力し，残りの1つの角の角度を出力する
+        // getAngle()関数を作成してください．
+        // function getAngle(a, b) {
+        //     const ang = 180 - a -b ;
+        //     console.log(ang);
+        // }
+        // console.log(getAngle(30, 90));    // 60
+        // console.log(getAngle(45, 45));    // 90
+
+        // 18 数字の出力
+        // ある正の整数n（最大2桁）が入力されます．
+        // nを0埋め3桁で出力する zerofPadding3()関数を作成してください．
+        // 例えば以下のような入力の場合
+        // 98
+        // 以下のように出力して下さい
+        // 098
+        // function zeroPadding3(n) {
+        //     // if (1 <= n < 10) { この書き方だとだめ！！注意  
+        //     if (1 <= n && n < 10) {  //&&はand  ||はor
+        //         // console.log("1桁やで！");
+        //         const result = '00' + n;
+        //         console.log(result);
+        //     } else if (10 <= n && n < 100) {
+        //         // console.log("2桁やで！");
+        //         const result = '0' + n;
+        //         console.log(result);
+        //     }
+        // }
+        //Watsonの回答の方が短い やられた
+        // 末尾から2文字を取得
+        // var b = str.slice(-2);
+
+        // function zeroPadding3(n) {
+        //     return ("000" + n).slice(-3);
+        // }
+        // console.log(zeroPadding3(120));    // 120
+        // console.log(zeroPadding3(98));    // 098
+        // console.log(zeroPadding3(2));    // 002
+        // console.log(zeroPadding3(1));    // 001
 
 
 
