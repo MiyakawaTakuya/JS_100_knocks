@@ -364,7 +364,7 @@
         // console.log(getMaxAndMin('5 9 -1 10 2'));    // 10 -1
 
 
-        // 文字列からN番目
+        // 14 文字列からN番目
         //     半角アルファベット文字列sと整数nが入力されます．
         //     文字列sの1番左の文字を1文字目としn文字目のアルファベットを出力するgetNthChar()関数を定義してください．
         //     例えば
@@ -372,13 +372,34 @@
         //     と入力された場合
         //     a
         //     と出力して下さい．
-            function getNthChar(s, n) {
 
-            }
+        // slice()は、文字列や配列などからデータの一部分だけ取り出せるメソッドになります。
+        // var str = 文字列
+        // str.slice(開始位置, 終了位置(省略可能));
 
-            console.log(getNthChar('gsacademy', 3));    // a
-            console.log(getNthChar('abcdefg', 5));    // e
-            console.log(getNthChar('qwertyu', 1));    // q
+        //sのarrayを組む(単語の塊から配列状態にする)
+        //n-1の番目までを抽出する
+        // function getOneToN(s, n) {
+        //     //sの文字列を1文字ずつ分割して配列に変換.sのarrayを組む(単語の塊から配列状態にする)
+        //     const arrayS = s.split('');
+        //     console.log(arrayS);
+        //     // n - 1の番目までを抽出する
+        //     const arraySS = arrayS.slice(0, n);
+        //     console.log(arraySS);
+        //     //抽出して出来上がった目的とする配列を結合して文字列に戻す
+        //     const arrayZ = arraySS.join('');
+        //     console.log(arrayZ);
+
+        function getNthChar(s, n) {
+            const arrayS = s.split('');
+            // console.log(arrayS);
+            // n - 1の番目までを抽出する
+            const arraySS = arrayS.slice(n, n);
+        }
+
+        console.log(getNthChar('gsacademy', 3));    // a
+        console.log(getNthChar('abcdefg', 5));    // e
+        console.log(getNthChar('qwertyu', 1));    // q
 
 
 
