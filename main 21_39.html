@@ -85,6 +85,101 @@
         // console.log(getTimeUntilFull(70));    // 30
         // console.log(getTimeUntilFull(25));    // 75
 
+        // 26 頭文字
+        // あなたは半角アルファベットの苗字と名前からそれぞれ 1文字目を取りイニシャルを作ることにしました．
+        // 半角スペース区切りで苗字と名前が入力されるので，1文字目を取り "."(半角ドット)で区切った文字列を出力する
+        // getInitialFromName()関数を作成してください．
+        // function getInitialFromName(s) {
+        //     //半角スペースので分かれているところをそれぞれの配列要素とした配列を組む
+        //     const array = s.split(" ");
+        //     // console.log(array);
+        //     // console.log(array[0]);
+        //     // console.log(array[1]);
+        //     //それぞれの要素の一文字目を.sliceで取り出す
+        //     const ini1 = array[0].slice(0, 1); 
+        //     const ini2 = array[1].slice(0, 1);
+        //     return ini1 + "." + ini2;
+        // }
+        // console.log(getInitialFromName('Dio Brando'));    // D.B
+        // console.log(getInitialFromName('Pannacotta Fugo'));    // P.F
+        // console.log(getInitialFromName('Gyro Zeppeli'));    // G.Z
+
+        // 27 どれにしようかな
+        // あなたはレストランで何を注文しようか迷っています．しかしあまり時間がないので
+        // 「どれにしようかな天の神様の言うとおり」で决めてしまいましょう．
+        // メニューの数nを入力し，選ばれた1からnまでの数の一つを出力する choiceOfGod()関数を作成してください．
+        // 選ばれるメニューはこの文字数 21 を迷っているメニューの数で割れば求められます．
+        // ただし余りが 0 となるときはそのメニューの中で最後のものが選ばれることに注意しましょう．
+
+        // function choiceOfGod(n) {
+        //     //観察
+        //     //あまりが1の時 1番目になる
+        //     //あまりが2の時 2番目になる
+        //     //あまりが０の時 n番目になる
+        //     //あまりがnの時 n番目になる
+        //     if (21 % n == 0) {
+        //         return n;
+        //     } else if (21 % n != 0 ) {
+        //         return 21 % n;
+        //     } 
+        // }
+        // console.log(choiceOfGod(4));    // 1
+        // console.log(choiceOfGod(3));    // 3
+        // console.log(choiceOfGod(16));    // 5
+        // console.log(choiceOfGod(19));    // 2
+        // console.log(choiceOfGod(10));    // 1
+
+        // 28 日付のデータ
+        //     スペース区切りで西暦y，月m，日dが入力されます．
+        //     /区切りで文字列として出力する formatYMD()関数を作成してください．
+        //     ただし，西暦は4桁，月と日は2桁で出力しましょう．
+        // スライスの参考 return ("000" + n).slice(-3);
+
+        // function formatYMD(s) {
+        //     //まずは文字列sを３要素からなる配列にする 半角スペースので分かれているところで分割
+        //     const array = s.split(" ");
+        //     //Y(配列０番目)は"000"を足して末尾から４つ .slice(-4)で抜き出す
+        //     const Y = ("000" + array[0]).slice(-4);
+        //     //M(配列1番目)とD(配列2番目)は"0"を足して末尾から2つ .slice(-2)で抜き出す
+        //     const M = ("0" + array[1]).slice(-2);
+        //     const D = ("0" + array[2]).slice(-2);
+        //     return Y + "/" + M + "/" + D;
+        // }
+        // console.log(formatYMD('2021 1 1'));    // 2021/01/01
+        // console.log(formatYMD('2020 10 10'));    // 2020/10/10
+        // console.log(formatYMD('794 11 29'));    // 0794/11/29
+
+        // 29 アットマーク
+        //     半角小文字アルファベットで構成された文字列sが入力されます．
+        //     文字列sの中に含まれるatという文字列を全て@(アットマークに) 置換して出力する 
+        //     convertAtToAtMark()関数を作成してください．
+        // var str =”ミッキー・ドナルド・ミニー・グーフィー・ミッキー”;
+        //     //正規表現でミッキーを全部プルートに置換する
+        //     str = str.replace(/ミッキー/g, ”プルート”);
+        //    
+        // function convertAtToAtMark(s) {
+        //     return s.replace(/at/g, "@");  //正義表現で対象を絞り、置換
+        // }
+        // console.log(convertAtToAtMark('gsatcodeatquantity'));    // gs@code@quantity
+        // console.log(convertAtToAtMark('atatatjojoatatat'));    // @@@jojo@@@
+
+        // 30 花粉症でつらい
+        //    あなたは花粉症でティッシュを毎日使っては買いに行くのを繰り返していましたが，
+        //    必要なティッシュ箱の数を計算し一気に注文しようと考えました．
+        //    ティッシュ1箱が空になるまでの期間をm日，残りの花粉症の季節をn日が入力されるので，
+        //    花粉症の季節が終わるまでに必要なティッシュ箱の数を求める getNeedBox()関数を作成してください．
+
+        // function getNeedBox(m, n) {
+        //     if (m >= n) {
+        //         return 1;
+        //     } else {
+        //         return ~~(n / m) + 1; //ビット否定演算子を使用して小数部を切り捨てする方法
+        //     }
+        // }
+
+        // console.log(getNeedBox(7, 30));    // 5
+        // console.log(getNeedBox(3, 100));    // 34
+        // console.log(getNeedBox(7, 5));    // 1
 
 
 
