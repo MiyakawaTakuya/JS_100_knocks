@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 21 nまでの和
+        // ある2以上の整数nが与えられます．
+        // 1からnまでの和を出力するgetSum()関数を作成してください．
+        // 挙動しなかったやつ
+        // const sum = 0;
+        // const array = [];
+        // function getSum(n) {
+        //     for (let i = 1; i < n + 1; i++) {
+        //         sum = sum + i;
+        //         array.push(sum);
+        //         // const last = array.slice(-1);
+        //         console.log(sum);
+        //         return array;
+        //     }
+        // }
+        // 挙動しているやつ
+        // function getSum(n) {
+        //     const array = [];
+        //     for (i = 0; i < n + 1; i++) {
+        //         array.push(i);
+        //         // console.log(array.push(i));  //これを検証画面で見るとなぜか２の倍数になってる
+        //         console.log(array);
+        //         //for文は処理を繰り返す、だけど一旦は最後の処理が行われた状態が成果物になる？
+        //     }
+        //     const total = array.reduce(function (sum, element) {
+        //         return sum + element;
+        //     }, 0);
+        //     return total
+        // }
+        // console.log(getSum(10));    // 55
+        // console.log(getSum(99));    // 4950
+
+        // 22 数字の桁数
+        // ある10進数の正の整数nが与えられます．
+        // nが何桁かを数字で出力する getNumberOfDigits()関数を作成してください．
+        ///String() コンストラクターを使用して文字列として生成することができます。
+
+        // function getNumberOfDigits(n) {
+        //     console.log(String(n));  //これで文字列に変換している
+        //     const array = String(n).split('');  //一文字一文字の配列に置き換えている
+        //     console.log(array);
+        //     return array.length; //その配列のlengthを出す
+        // }
+        // console.log(getNumberOfDigits(100));    // 3
+        // console.log(getNumberOfDigits(114514));    // 6
+
+        // 23 サイコロの裏面
+        // 一般的な6面サイコロの目を表す整数nに対し，その裏側にある目を出力する getBackSide()関数を作成してください．
+
+        // function getBackSide(n) {
+        //     return 7-n;  //サイコロの法則性を見つける 和が７になる
+        // }
+        // console.log(getBackSide(1));    // 6
+        // console.log(getBackSide(3));    // 4
+
+        // 24 単位の変換
+        // ある正の整数nが入力されます．
+        // n分から秒へ変換する convertToSeconds()関数を作成してください．
+        // function convertToSeconds(n) {
+        //     return n*60;
+        // }
+        // console.log(convertToSeconds(16));    // 960
+        // console.log(convertToSeconds(3));    // 180
+
+        // 25 充電時間
+        // 1分間で1 % の充電が可能なスマートフォンの充電器があります．
+        // 現在のスマートフォンのバッテリーの残量n % からこの充電器で100 % まで充電するのに何分かかるかを求める
+        // getTimeUntilFull()関数を作成してください．
+        // function getTimeUntilFull(n) {
+        //     return 100-n;
+        // }
+        // console.log(getTimeUntilFull(70));    // 30
+        // console.log(getTimeUntilFull(25));    // 75
+
+
+
+
+
+
+        //01 数の比較
+        //整数の入力値aとbを比較し大きい方の値を出力するcompareNumbers()関数を作成してください．
+        //aとbが等しい場合はeqと出力して下さい．
+        //     function compareNumbers(a, b) {
+        //         if(a == b) {
+        //             return "eq";
+        //         } else if (a > b) {
+        //             return a;
+        //         } else if (a < b) {
+        //             return b;
+        //     }
+        // }
+        //     console.log(compareNumbers(2, 5));    // 5
+        //     console.log(compareNumbers(10, 9));   // 10
+        //     console.log(compareNumbers(2, 2));    // eq
+
+
+        // 02 単位の計算
+        //     距離nとその単位sが入力されるので，すべての距離をmmに換算し出力する
+        //     convertToMm()関数を作成してください．
+        //     入力される距離の単位は km, m, cm の3種類で，それぞれ以下のように換算出来ます．
+        //     1km = 1000m
+        //     1m = 100cm
+        //     1cm = 10mm
+        // function convertToMm(n, s) {
+        //     const k = "km";
+        //     const mm = "m";
+        //     const c = "cm";
+        //     if (s = k) {
+        //         return (n * 1000000);
+        //     } else if (s = mm) {
+        //         return (n * 1000);
+        //     } else if (s = c) {
+        //         return (n * 10);
+        //     }
+        // }
+        //オブジェクト 利用した関数
+        //function convertToMm(n, s) {
+        //      const obj = { km: 1000000, m: 1000, cm: 10 }
+        //      return n * obj[s];
+        // }
+
+        // function convertToMm(n, s) {
+        //     if (s == "km") {    //==を＝と表記してしまっていて詰まってた
+        //         return (n * 1000000);
+        //     } else if (s == "m") {
+        //         return (n * 1000);
+        //     } else if (s == "cm") {
+        //         return (n * 10);
+        //     }
+        // }
+        // console.log(convertToMm(1, "km"));    // 1000000
+        // console.log(convertToMm(54, "km"));   // 54000000
+        // console.log(convertToMm(2, "cm"));    // 20
+        // console.log(convertToMm(5, "m"));    // 5000
+
+
+        // 03 奇数か偶数か
+        //     正の整数nが入力されるので，n奇数ならばodd偶数ならば
+        //     evenと出力するoddOrEven()関数を作成してください．
+        // function oddOrEven(n) {
+        //     if ((n % 2) != 0) { //奇数の場合
+        //         return "odd";
+        //     } else if ((n % 2) == 0) { //偶数の場合
+        //         return "even";
+        //     }
+        // }
+        // console.log(oddOrEven(4));    // even
+        // console.log(oddOrEven(5));    // odd
+        // console.log(oddOrEven(2));    // even
+
+
+        // 04 西暦の計算
+        // 2つの西暦aとbを入力し，aからbが何年間あるか出力する
+        // calculateYears()関数を作成してください（a < bとする）．
+        // function calculateYears(a, b) {
+        //     return b - a;
+        // } //問題の意図としてはbcも考慮した数式にすべきだったか！？
+        // console.log(calculateYears(1990, 2014));    // 24
+        // console.log(calculateYears(1999, 2000));    // 1
+        // console.log(calculateYears(794, 1192));    // 398
+
+        // 05 何番目？
+        // 以下のような A〜Z(半角英字大文字) の中から1文字入力されます．
+        // ABCDEFGHIJKLMNOPQRSTUVWXYZ A を 1番目としてアルファベット順で
+        // 何番目かを出力するjudgeTh()関数を作成してください．
+        // 例えばCを入力した場合は3と出力して下さい．
+        // function judgeTh(c) {
+        //     const arrABC = [ [A, 1], [B, 2], [C, 2] , [D, 4], [E, 5],
+        //                 [F,6], 
+        //             ];
+        //参考にしたもの
+        // const arrayData = ['田中', '中村', '村山', '山川', '川本'];
+        //     const search = '村山';
+        //     const index = arrayData.indexOf(search);
+        //     if (index >= 0) {
+        //         console.log(`${search}さんは${index + 1}番目のメンバーです`);
+        //     } else {
+        //         console.log(`${search}さんはメンバーではありません`);
+        //     }
+        // function judgeTh(c) {
+        //     const arrABC = ["A", "B", "C", "D", "E", "F", "G", "H", "I",
+        //         "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+        //         "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        //     const index = arrABC.indexOf(c);  //indexOf()の関数を初めて覚えた
+        //     return index + 1;
+        // }
+        // console.log(judgeTh('C'));    // 3
+        // console.log(judgeTh('X'));    // 24
+
+
+        // 06 絶対値
+        // - 100から100までの整数nが与えられるので，
+        // 絶対値を出力するgetAbs()関数を作成してください
+        //条件分きバターン   →abc関数というもので絶対値をとることができるらしい
+        // function getAbs(n) {
+        //     if (n == 0) {
+        //         return 0;
+        //     } else if (n > 0) {
+        //         return n;
+        //     } else if (n < 0) {
+        //         return n * -1;
+        //     }
+        // }
+        //     console.log(getAbs(-10));    // 10
+        //     console.log(getAbs(15));     // 15
+        //     console.log(getAbs(0));      // 0
+
+
+        // 07 割り算
+        //     整数mとnを入力し，mをnで割り算した商と余りを半角スペース区切りの文字列で
+        //     出力するgetQuotientAndSurplus()関数を作成してください．
+        // function getQuotientAndSurplus(m, n) {
+        //     //m/nのときの整数部分を算出する
+        //     const seisu = Math.trunc(m/n);
+        //     //m/nのときのあまり部分を算出する
+        //     const amari = Math.trunc(m%n);
+        //     return seisu + " " + amari;
+        // }
+        // console.log(getQuotientAndSurplus(10, 3));    // 3 1
+        // console.log(getQuotientAndSurplus(12, 14));    // 0 12
+        // console.log(getQuotientAndSurplus(24, 8));   //3 0
+
+        // 08 小文字を大文字に
+        //     半角アルファベットの小文字で構成された長さnの文字列sが与えられます．
+        //     文字列sを大文字に変換して出力するconvertToUppercase()関数を作成してください．
+        //toUpperCase()は小文字を大文字に、toLowerCase()は大文字を小文字にするメソッドです。
+        // var text = "syncer";
+        // var upperCaseText = text.toUpperCase();
+        // function convertToUppercase(s) {
+        //     return s.toUpperCase();
+        // }
+        // console.log(convertToUppercase('gsacademy'));    //
+        // console.log(convertToUppercase('abcdefghijklmnopqrstuvwxyz'));    // ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+        // 09 掛け算のリスト
+        //     正の整数1から9に整数nをそれぞれを掛けた数を半角スペース区切りで
+        //     出力する関数createList()関数を作成してください．
+        //     例えばn = 2の場合は 2 4 6 8 10 12 14 16 18 となります．
+        //配列の中身を一括処理
+        // var programs = ["JS", "HTML", "CSS"];
+        //     programs.forEach(item => console.log(item)); // ラムダ式を利用
+
+        // function createList(n) {
+        //     const arr = [1 * n, " ", 2 * n, " ", 3 * n, " ", 4 * n, " ", 5 * n, " ",
+        //     6 * n, " ", 7 * n, " ", 8 * n, " ", 9 * n];
+        //     arr.forEach(item => console.log(item));
+        // }
+        // function createList(n) {
+        //     const arr = [1 * n, " ", 2 * n, " ", 3 * n, " ", 4 * n, " ", 5 * n, " ",
+        //     6 * n, " ", 7 * n, " ", 8 * n, " ", 9 * n];
+        //     for (const elem of arr) {
+        //         console.log(elem);
+        //     }
+        // }
+        // console.log(createList(2));    // 2 4 6 8 10 12 14 16 18
+        // console.log(createList(3));    // 3 6 9 12 15 18 21 24 27
+        // console.log(createList(5));    // 5 10 15 20 25 30 35 40 45
+
+
+        //10 等差数列
+        // 以下のような数列を考えます．
+        // 5 8 11 14 17 20 23 26 29 32
+        // 最初の数字が5で，3ずつ増加していく事がわかります． 一般的にこれを初項5，公差3の等差数列といいます．
+        // このような数列を出力するプログラムを作りましょう．
+        // 初項mと公差nが入力し，10番目までの数字をスペース
+        // 区切りで出力するcreateSequence()関数を作成してください．
+        // 阿部式
+        // function createSequence(m, n) {
+        //         let num = "";
+        //         for (let i = 0; i < 10; i++) {
+        //             num += String(`${m + (n * i)}\t`);
+        //         }
+        //         return num;
+        //     }
+        //エラーが発生している数式
+        // function createSequence(m, n) {
+        //     const tosasuretsu = m + i * n;
+        //     for (let i = 0; i < 10; i++); {
+        //         console.log(tosasuretsu);
+        //     }
+        // }
+        // function createSequence(m, n) {
+        //     //↓もっといい処理があるはずだが後回し！
+        //     const arr = [m, m + n, m + 2*n, m + 3*n, m + 4*n, m + 5*n, m + 6*n, m + 7*n, m + 8*n, m + 9*n];
+        //     //数学で見慣れている＊を省略する癖に注意 都度演算子で指示出しをしっかりしてあげる！！
+        //     // console.log(arr);
+        //     for (let i = 0; i < 10; i++) {
+        //         console.log(arr[i]);
+        //         // const item = arr[i];  //別の書き方
+        //         // console.log(item);
+        //     }
+        // }
+        // console.log(createSequence(3, 3));    // 3 6 9 12 15 18 21 24 27 30
+        // console.log(createSequence(5, 10));    // 5 15 25 35 45 55 65 75 85 95
+        // console.log(createSequence(1, 3));    // 1 4 7 10 13 16 19 22 25 28
+
+
+        //11 カウントダウン
+        // 正整数nが入力されるので，nから1まで1ずつカウントダウンするcountDown()関数を作成してください．
+        // 例えば
+        // 3
+        // と入力された場合
+        // 3 2 1
+        // と出力してください．
+        // function countDown(n) {
+        //     for (let i = ; i < arr.length + 1; i--) {
+        //         console.log(arr[i]);
+        //     }
+        //     console.log(countDown(3));     // 3 2 1
+        //     console.log(countDown(10));    // 10 9 8 7 6 5 4 3 2 1
+        // }
+        // function countDown(n) {
+        //     Array.apply(null, { length: (n + 1) }).map(Number.call, Number);
+        // }
+        // console.log(countDown(3));     // 3 2 1
+        // console.log(countDown(10));    // 10 9 8 7 6 5 4 3 2 1
+        //まずは１からnまでの数列を生成する
+        // function countDown(n) {
+        //     for (let i = 0; i < n; i++) {
+        //         console.log(arr[n]);
+        //     }
+        //     //生成した数列を前後逆にする処理を最後に加えてあげる
+
+        //     console.log(countDown(3));     // 3 2 1
+        //     console.log(countDown(10));    // 10 9 8 7 6 5 4 3 2 1
+        // }
+        //OKコード
+        // function countDown(n) {
+        //     const arr = [];
+        //     for (var i = 0; i < n; i++) { arr[i] = i + 1; }
+        //     const arrRev = arr.reverse(); //順番を入れ替える配列処理
+        //     console.log(arrRev);           //生成した数列を前後逆にする処理を最後に加えてあげる
+        // }
+        // console.log(countDown(3));     // 3 2 1
+        // console.log(countDown(10));    // 10 9 8 7 6 5 4 3 2 1
+
+
+        // 12 N文字目まで出力
+        //     半角アルファベットで構成された文字列sと正の整数n入力されます．
+        //     1文字目からn文字目までを出力するgetOneToN()関数を作成してください．
+        //     例えば
+        //     abcdefgと4
+        //     と入力された場合
+        //     abcd
+        //     と出力して下さい．
+        // slice()は、文字列や配列などからデータの一部分だけ取り出せるメソッドになります。
+        // var str = 文字列
+        // str.slice(開始位置, 終了位置(省略可能));
+        //文字列を1文字ずつ分割して配列に変換
+        //var string = 'apple,banana,chocolate';
+        //var array = string.split('');
+        //console.log(array);
+        // 出力
+        // (22) ["a", "p", "p", "l", "e", ",", "b", "a", "n", "a", "n", "a", ",", "c", "h", "o", "c", "o", "l", "a", "t", "e"]
+        //結合の参考れい
+        //         let fruit = ['Apple', 120, 'Grapes', 80];
+        //             console.log(fruit.join());
+        // >> Apple, 120, Grapes, 80
+        //             console.log(fruit.join(' + '));
+        // >> Apple + 120 + Grapes + 80
+        //             console.log(fruit.join(''));
+        // >> Apple120Grapes80
+        //sのarrayを組む(単語の塊から配列状態にする)
+        //n-1の番目までを抽出する
+        // function getOneToN(s, n) {
+        //     //sの文字列を1文字ずつ分割して配列に変換.sのarrayを組む(単語の塊から配列状態にする)
+        //     const arrayS = s.split('');
+        //     console.log(arrayS);
+        //     // n - 1の番目までを抽出する
+        //     const arraySS = arrayS.slice(0, n);
+        //     console.log(arraySS);
+        //     //抽出して出来上がった目的とする配列を結合して文字列に戻す
+        //     const arrayZ = arraySS.join('');
+        //     console.log(arrayZ);
+        // }
+
+        // console.log(getOneToN('aabbccdd', 5));    // aabbc
+        // console.log(getOneToN('gsacademyfukuoka', 9));    // gsacademy
+
+        //13 最大と最小
+        // 5個の数字 n_1, n_2, n_3, n_4, n_5 が半角スペース区切りで与えられます．
+        // それらの数字の最大の数字，最小の数字を半角スペース区切りで出力するgetMaxAndMin()関数を作成してください．
+        // 例えば
+        // 9 12 3 6 10
+        // と入力された場合
+        // 12 3
+        // と出力してください．
+        //参考  比較関数を用いて昇順に並び替える 
+        //var ary = [1, -1, 5, -10, -11];
+        //var f = function (a, b) {
+        //   return a - b
+        //    }
+        // console.log(ary.sort(f));
+        //  => var ary = [-11, -10, -1 , 1, 5];
+        //比較関数を用いて降順に並び替える
+        // var sample = '吾　輩 は　　　　　猫　で　ある　　　';
+        //     sample = sample.replace(/\s+/g, '')
+        //     console.log(sample)
+        //参考  比較関数を用いて降順に並び替える 
+        //var ary = [1, -1, 5, -10, -11];
+        // var f = function (a, b) {
+        //     return b - a
+        // }
+        // console.log(ary.sort(f));
+        // => var ary = [5, 1, -1 , -10, -11];
+        //replaceメソッドを用いると、ある文字列の中にある指定したキーワードを、別のキーワードに置換することができます
+        //(文字列の変数).replace((置換対象文字列),(置換文字列))
+        //// const conmairi = s.replace([' ', ','], [' ', ','], [' ', ','], [' ', ','], [' ', ','] );
+
+        // function getMaxAndMin(s) {
+        //     //まず(半角スペースじゃなくてコンマに置き換える)
+        //     const conmairi = s.replace(/\s+/g, ',');
+        //     console.log(conmairi);
+        //     //コンマ入り文字列を配列に組み換える
+        //     var array = conmairi.split(',');
+        //     console.log(array);
+        //     //配列に組み替えたものを比較関数を用いて降順に並び替える
+        //     const kojun = function (a, b) {
+        //         return b - a;
+        //     }
+        //     console.log(array.sort(kojun));
+        //     const Max_Min = array.sort(kojun);
+        //     //組み替えたもののうち最初と最後だけを抜き出した配列を生成して完成
+        //     //一番大きいのが0番目,一番小さいのが4番目に来るので
+        //     const MaxMin = Max_Min[0] + " " + Max_Min[4];
+        //     console.log(MaxMin);
+        // }
+        // console.log(getMaxAndMin('9 12 3 6 10'));    // 12 3
+        // console.log(getMaxAndMin('1 1 2 2 3'));    // 3 1
+        // console.log(getMaxAndMin('5 9 -1 10 2'));    // 10 -1
+
+
+        // 14 文字列からN番目
+        //     半角アルファベット文字列sと整数nが入力されます．
+        //     文字列sの1番左の文字を1文字目としn文字目のアルファベットを出力するgetNthChar()関数を定義してください．
+        //     例えば
+        //     gsacademyと3
+        //     と入力された場合
+        //     a
+        //     と出力して下さい．
+
+        // slice()は、文字列や配列などからデータの一部分だけ取り出せるメソッドになります。
+        // var str = 文字列
+        // str.slice(開始位置, 終了位置(省略可能));
+
+        //sのarrayを組む(単語の塊から配列状態にする)
+        //n-1の番目までを抽出する
+        // function getOneToN(s, n) {
+        //     //sの文字列を1文字ずつ分割して配列に変換.sのarrayを組む(単語の塊から配列状態にする)
+        //     const arrayS = s.split('');
+        //     console.log(arrayS);
+        //     // n - 1の番目までを抽出する
+        //     const arraySS = arrayS.slice(0, n);
+        //     console.log(arraySS);
+        //     //抽出して出来上がった目的とする配列を結合して文字列に戻す
+        //     const arrayZ = arraySS.join('');
+        //     console.log(arrayZ);
+
+        // function getNthChar(s, n) {
+        //     const arrayS = s.split('');
+        //     // console.log(arrayS);
+        //     // n - 1の番目までを抽出する
+        //     const arraySS = arrayS.slice(n-1, n);
+        //     // console.log(arraySS);
+        // }
+        // console.log(getNthChar('gsacademy', 3));    // a
+        // console.log(getNthChar('abcdefg', 5));    // e
+        // console.log(getNthChar('qwertyu', 1));    // q
+
+        // 15 Aの個数(正規表現)
+        // 半角アルファベットで構成された文字列sが与えられます．
+        // sに含まれる半角アルファベット「A」の数を出力する
+        // getNumberOfA()関数を作成してください．
+
+        //あるテキストに含まれる文字の数を確認したい場合は、match()を利用しましょう。
+        ///パターン/gのgはgフラグといい、複数箇所の文字列を抽出できる
+        // var text = "あいうえおあいうえお";
+        // var count = (text.match(/あ/g) || []).length;
+        //対処の文字を変数で指定したい場合はこれ
+        // var text = "あいうえおあいうえお";
+        // var targetStr = "あ";
+        // var count = (text.match(new RegExp(targetStr, "g")) || []).length;
+
+        // function getNumberOfA(s) {
+        //     const str = s;
+        //     const targetStr = 'A';
+        //     const targetStr2 = 'a';
+        //     const count = (str.match(new RegExp(targetStr, "g")) || []).length;
+        //     const count2 = (str.match(new RegExp(targetStr2, "g")) || []).length;
+        //     console.log(count);
+        //     console.log(count2);
+        // }
+        // console.log(getNumberOfA('GSACADEMY'));    // 2
+        // console.log(getNumberOfA('aAaAaA'));    // 3
+        // console.log(getNumberOfA('JavaScript'));    // 0
+
+        //16  表面積の計算
+        // 立方体の体積を求めましょう．
+        // 一辺の長さaが入力されるので，立方体の表面積を出力する
+        // getSurfaceArea()関数を作成してください．
+        // function getSurfaceArea(a) {
+        //     const sur = a * a * 6;
+        //     console.log(sur);
+        // }
+        // console.log(getSurfaceArea(4));    // 96
+        // console.log(getSurfaceArea(1));    // 6
+
+        // 17 三角形の内角の和
+        // 平面上の三角形の2つの角の角度a, bを入力し，残りの1つの角の角度を出力する
+        // getAngle()関数を作成してください．
+        // function getAngle(a, b) {
+        //     const ang = 180 - a -b ;
+        //     console.log(ang);
+        // }
+        // console.log(getAngle(30, 90));    // 60
+        // console.log(getAngle(45, 45));    // 90
+
+        // 18 数字の出力
+        // ある正の整数n（最大2桁）が入力されます．
+        // nを0埋め3桁で出力する zerofPadding3()関数を作成してください．
+        // 例えば以下のような入力の場合
+        // 98
+        // 以下のように出力して下さい
+        // 098
+        // function zeroPadding3(n) {
+        //     // if (1 <= n < 10) { この書き方だとだめ！！注意  
+        //     if (1 <= n && n < 10) {  //&&はand  ||はor
+        //         // console.log("1桁やで！");
+        //         const result = '00' + n;
+        //         console.log(result);
+        //     } else if (10 <= n && n < 100) {
+        //         // console.log("2桁やで！");
+        //         const result = '0' + n;
+        //         console.log(result);
+        //     }
+        // }
+        //Watsonの回答の方が短い やられた
+        // 末尾から2文字を取得
+        // var b = str.slice(-2);
+
+        // function zeroPadding3(n) {
+        //     return ("000" + n).slice(-3);
+        // }
+        // console.log(zeroPadding3(120));    // 120
+        // console.log(zeroPadding3(98));    // 098
+        // console.log(zeroPadding3(2));    // 002
+        // console.log(zeroPadding3(1));    // 001
+
+        // 19 一週間の予定
+        // あなたは1週間を全て休みにするために有給を申請することにしました．もともと決まっている休みもあります．
+        // 半角スペース区切りで7日間の休みが，休みならば「yes」，休みでなければ「no」と入力されます．
+        // 有給申請しなくては行けない日数を出力する getPaidHolidays()関数を作成してください．
+
+        // var text = "あいうえおあいうえお";
+        // var targetStr = "あ";
+        // var count = (text.match(new RegExp(targetStr, "g")) || []).length;
+        // function getPaidHolidays(s) {
+        //     const text = s;
+        //     const targetStr = "no";
+        //     const count = (text.match(new RegExp(targetStr, "g")) || []).length;
+        //     return count;
+        // }
+        // console.log(getPaidHolidays('yes yes yes yes no no yes'));    // 2
+        // console.log(getPaidHolidays('yes no no no no no yes'));    // 5
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
