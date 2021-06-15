@@ -181,7 +181,128 @@
         // console.log(getNeedBox(3, 100));    // 34
         // console.log(getNeedBox(7, 5));    // 1
 
+        // 31 本棚選び
+        //     あなたは新しい本棚を買おうと検討しています．そこで，既に持っている本の幅などから収まるか概算することにしました．
+        //     持っている本の幅を合計したものn(cm) ，検討している本棚の段数d，本が収まる幅e(cm)がそれぞれ半角スペース区切りで入力し，
+        //     本が収まるかどうかをOKまたはNGで出力するcanStoreBooks()関数を作成してください．
+        //     概算なので本それぞれの違い1段に収まるかは考えないことにします．
+        //     例えば，本の幅を合計したものが400(cm) ，検討している本棚の段数が5，本が収まる幅が85(cm)の場合は以下の様な入力になり，
+        //     400 5 85
+        //     各段の幅を合計したものは85かける5で425(cm)となり，400(cm)の本は収まるので以下のように出力して下さい．
+        //     OK
+        //     収まらない場合はNGを出力してくだだい．
+        // function canStoreBooks(s) {
+        //     //配列arrayにする
+        //     const array = s.split(" ");
+        //     //array[0]<=array[1]*array[2]となる時のif文をかく
+        //     if(array[0] <= array[1] * array[2]){
+        //         return "OK";
+        //     } else {
+        //         return "NG";
+        //     }
+        // }
+        // console.log(canStoreBooks('400 5 85'));    // OK
+        // console.log(canStoreBooks('500 4 70'));    // NG
+        // console.log(canStoreBooks('500 6 90'));    // OK
 
+        // 32 試合の回数
+        // あなたは1対1で戦う競技の大会を開くことにしました．
+        // n人の選手で総当り対戦を行う場合，対戦の回数を出力する calculateNumberOfGames()関数を作成してください．
+        // 総当り戦ではn人がそれぞれ自分自身以外と対戦します．
+        // 数学の組み合わせで言うnC2？  
+        // function calculateNumberOfGames(n) {
+        //     return n*(n-1)/2;
+        // }
+        // console.log(calculateNumberOfGames(4));    // 6 = 4*3/2
+        // console.log(calculateNumberOfGames(10));    // 45 = 10*9/2
+
+        // 33 連休の天気
+        //     あなたは7日間の連休をもらいましたが，降水確率が30 % 以下ならば外に出掛ける事に決めました．
+        //     7日間の降水確率(%)が半角スペース区切りで入力されるので，出掛ける日数の合計を出力する 
+        //     daysOfGoOut()関数を作成してください．
+        // var text = "あいうえおあいうえお" ;
+        // var count = (text.match(/あ/g) || []).length;
+        // 正規表現を使ってチャレンジ 30%以下 →1~30
+        //  1以上、30以下の２桁の数字  |はor
+        // [1-9]|[1-2][0-9]|30
+        ////正規表現だけで頑張ったがうまくいかなかった
+        // function daysOfGoOut(s) {
+        //     // const count = (s.match(/[1 - 9]/g)).length + (s.match(/[1 - 2][0 - 9]/g)).length + (s.match(/30/g)).length;
+        //     // const count = (s.match(/[1 - 9]/g)).length;
+        //     // const count = (s.match(/[1 - 9]/g) || (/[1 - 2][0 - 9]/g) || (/30/g) || []).length;
+        //     // return count;
+        //     // console.log(s.match(/[1-9]/g));  //この表現だけだと数字単体で処理してしまうため、２桁の数字も１つずつの文字として拾ってしまう
+        //     //１桁の数字を拾うにはどうしたらいいか？？
+        //     //前後に[0-9]の数字のどれもきていないことを条件にする
+        //     // console.log(s.match(/[1-2][0-9]/g));
+        //     // console.log(s.match(/30/g));
+        //     // console.log(s.match(/[^0-9][1-9][^0-9]/g));
+        //     // console.log(s.match(/[^0-9][1-9]/g));
+        //     // console.log(s.match(/[1-9][^0-9]/g));
+        //     // console.log(s.match(/[1-9]|[1-2][0-9]|30/g));
+        // }
+        ////ここからは挙動したパターン
+        //正規表現の数値１つだけの拾い方がわからんので、路線変更
+        //配列にしてからの処理で考える
+        // function daysOfGoOut(s) {
+        //     const array = s.split(" ");
+        //     // console.log(array);
+        //     const arrayUnder30 = [];
+        //     const arrayRain = [];
+        //     for (i = 0; i < 7; i++) {
+        //         if (array[i] < 31) {
+        //             // console.log(i);
+        //             // console.log(array[i]);
+        //             arrayUnder30.push(array[i]);
+        //             // console.log(arrayUnder30);
+        //             // return arrayUnder30.length;
+        //         } else {
+        //             arrayRain.push(array[i]);
+        //             // console.log(arrayRain);
+        //         }
+        //     }
+        //     return arrayUnder30.length;
+        // }
+        // console.log(daysOfGoOut('13 0 15 30 89 100 30'));    // 5
+        // console.log(daysOfGoOut('0 14 18 22 0 2 4'));    // 7
+        // console.log(daysOfGoOut('99 99 99 99 99 99 99'));    // 0
+
+        // 34 正三角形かどうか
+        //    あなたは，3つの辺の長さが分かっている三角形が正三角形なのかを判別しようとしています．
+        //    3つの辺の長さ a, b, c が半角スペース区切りで与えられるので正三角形ならYES, 
+        //    正三角形でなければNOと出力する isEquilateralTriangle()関数を作成してください．
+        // function isEquilateralTriangle(s) {
+        //     const array = s.split(" ");
+        //     if(array[0] == array[1] && array[1] == array[2]){
+        //         return "Yes";
+        //     } else {
+        //         return "No";
+        //     }
+        // }
+        // console.log(isEquilateralTriangle('10 10 10'));    // yes
+        // console.log(isEquilateralTriangle('3 4 5'));    // No
+
+        // 35 天気の表示
+        //     あなたは0 % 〜 100 % の降水確率を得て，その数値から天気を文字列で表示をしようと考えました．
+        //     表示のルールは以下のよう定めました．
+        //     降水確率が 0 % 以上 30 % 以下ならばsunny
+        //     降水確率が 31 % 以上 70 % 以下ならばcloudy
+        //     降水確率が 71 % 以上ならばrainy
+        //     降水確率n(%)が与えられるので上のルールに従って文字列を出力する 
+        //     showWeather()関数を作成してください．
+        // function showWeather(n) {
+        //     if(n < 31){
+        //         return "sunny";
+        //     } else if(70 < n){
+        //         return "rainy";
+        //     } else {
+        //         return "cloudy";
+        //     }
+        // }
+
+        // console.log(showWeather(31));    // cloudy
+        // console.log(showWeather(2));    // sunny
+        // console.log(showWeather(71));    // rainy
 
 
 
