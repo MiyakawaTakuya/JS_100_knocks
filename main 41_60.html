@@ -173,15 +173,24 @@
         //     調理開始時間を出力するgetStartTimeForCook()関数を作成してください．
 
         function getStartTimeForCook(s, t) {
-            if (t <= 60) {
+            const min = (s * 60) - t;
 
-            }
+            var newDate = new Date();
+            newDate.getDate();
+            newDate.setFullYear(newDate.getFullYear() + 10));
+            // Date.prototype.setMinutes()
+            // console.log(s.Time());
+            console.log(Date.prototype.setMinutes());
+            console.log(Date.prototype.setMinutes(s));
 
-        }
 
-        console.log(getStartTimeForCook('19:00', 90));    // 17:30
-        console.log(getStartTimeForCook('20:00', 20));    // 19:40
-        console.log(getStartTimeForCook('20:30', 80));    // 19:10
+
+
+        // }
+
+        // console.log(getStartTimeForCook('19:00', 90));    // 17:30
+        // console.log(getStartTimeForCook('20:00', 20));    // 19:40
+        // console.log(getStartTimeForCook('20:30', 80));    // 19:10
 
 
 
